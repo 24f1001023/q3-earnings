@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Q3 Financial Earnings Report</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/blood.css" id="theme">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>Q3 Earnings Report</h1>
+                <h3>Financial Overview & Outlook</h3>
+                <p>
+                    <small>Prepared by Technical Consultant</small><br>
+                    <small>Email: <a href="mailto:24f1001023@ds.study.iitm.ac.in">24f1001023@ds.study.iitm.ac.in</a></small>
+                </p>
+                <aside class="notes">
+                    Welcome stakeholders. Today we will cover the Q3 performance and technical implementation of our new trading algos.
+                </aside>
+            </section>
+
+            <section data-markdown>
+                <textarea data-template>
+                    ## Executive Summary
+                    
+                    * **Revenue Growth:** Exceeded targets by 15%.
+                    * **Tech Infrastructure:** Migration to cloud 90% complete.
+                    * **Security:** Zero critical vulnerabilities detected.
+                    
+                    > "Innovation is the specific instrument of entrepreneurship."
+                </textarea>
+                <aside class="notes">
+                    Use this slide to summarize high-level wins before diving into data.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Sector Performance</h2>
+                <p>Breakdown by department:</p>
+                <ul>
+                    <li class="fragment fade-in-then-semi-out">Retail Banking: <span style="color:green">+12%</span></li>
+                    <li class="fragment fade-in-then-semi-out">Investment Arms: <span style="color:green">+8.5%</span></li>
+                    <li class="fragment highlight-red">Insurance: -2.1% (Requires Attention)</li>
+                    <li class="fragment fade-up"><strong>Total Net Profit: $4.2B</strong></li>
+                </ul>
+                <aside class="notes">
+                    Click through to reveal each sector. Pause on Insurance to discuss the dip.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Risk Modeling</h2>
+                <p>We are utilizing the <strong>Black-Scholes Model</strong> for our derivatives pricing update:</p>
+                
+                $$
+                C = S_t N(d_1) - K e^{-rt} N(d_2)
+                $$
+                
+                <p>Where $d_1$ is defined as:</p>
+                $$
+                d_1 = \frac{\ln(S_t/K) + (r + \sigma^2/2)t}{\sigma \sqrt{t}}
+                $$
+            </section>
+
+            <section>
+                <h2>Algorithmic Adjustment</h2>
+                <p>Python implementation for the new yield calculator:</p>
+                <pre><code class="hljs python" data-trim data-line-numbers="1-2|4-5|7">
+def calculate_annual_yield(principal, rate, years):
+    """Calculates compound interest yield"""
+    
+    # Apply compound interest formula
+    final_amount = principal * (pow((1 + rate / 100), years))
+    
+    return round(final_amount, 2)
+                </code></pre>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+
+    <script>
+        // Initialize Reveal
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>
