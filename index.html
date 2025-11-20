@@ -6,90 +6,145 @@
 
     <title>Q3 Financial Earnings Report</title>
 
+    <!-- Reveal.js Theme (Blood - Dark Theme) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/blood.css" id="theme">
     
+    <!-- Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+
+    <style>
+        /* PERSISTENT FOOTER STYLE 
+           This forces the text to sit on top of every slide.
+        */
+        #universal-footer {
+            position: absolute;
+            bottom: 1%;
+            left: 1%;
+            z-index: 2000; /* High z-index to sit on top of everything */
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            padding: 5px 10px;
+            border-radius: 4px;
+            pointer-events: none; /* Allows clicking through the footer if needed */
+        }
+    </style>
 </head>
 <body>
 
     <div class="reveal">
+        
+        <!-- 
+            MANDATORY FOOTER 
+            Placed outside the .slides container but inside .reveal 
+            to ensure it appears on every view.
+        -->
+        <div id="universal-footer">
+            Roll No: 24f1001023 | Email: 24f1001023@ds.study.iitm.ac.in
+        </div>
+
         <div class="slides">
 
+            <!-- SLIDE 1: Title Slide -->
             <section>
                 <h1>Q3 Earnings Report</h1>
-                <h3>Financial Overview & Outlook</h3>
-                <p>Prepared by Technical Consultant</p>
-                
-                <p style="font-size: 1.2em; color: #a23;">
-                    24f1001023@ds.study.iitm.ac.in
-                </p>
-
+                <h3>Technical & Financial Overview</h3>
+                <p>Prepared for Stakeholders</p>
                 <aside class="notes">
-                    Welcome stakeholders. Today we will cover the Q3 performance and technical implementation of our new trading algos.
+                    Good morning everyone. This is the Q3 earnings report presentation. 
+                    My contact details are visible at the bottom of the screen throughout the session.
                 </aside>
             </section>
 
+            <!-- SLIDE 2: Markdown Content -->
             <section data-markdown>
                 <textarea data-template>
                     ## Executive Summary
                     
-                    * **Revenue Growth:** Exceeded targets by 15%.
-                    * **Tech Infrastructure:** Migration to cloud 90% complete.
-                    * **Security:** Zero critical vulnerabilities detected.
+                    We have observed significant growth in our digital assets sector.
                     
-                    > "Innovation is the specific instrument of entrepreneurship."
+                    * **Revenue:** $4.2M (+12% YoY)
+                    * **User Base:** 1.5M Active Users
+                    * **Cloud Migration:** 100% Complete
+                    
+                    > "Data is the new oil, but execution is the engine."
                 </textarea>
                 <aside class="notes">
-                    Use this slide to summarize high-level wins before diving into data.
+                    Note that the cloud migration is fully complete, reducing our overhead costs significantly.
                 </aside>
             </section>
 
+            <!-- SLIDE 3: Animated Fragments -->
             <section>
-                <h2>Sector Performance</h2>
-                <p>Breakdown by department:</p>
+                <h2>Quarterly Highlights</h2>
+                <p>Key performance indicators:</p>
                 <ul>
-                    <li class="fragment fade-in-then-semi-out">Retail Banking: <span style="color:green">+12%</span></li>
-                    <li class="fragment fade-in-then-semi-out">Investment Arms: <span style="color:green">+8.5%</span></li>
-                    <li class="fragment highlight-red">Insurance: -2.1% (Requires Attention)</li>
-                    <li class="fragment fade-up"><strong>Total Net Profit: $4.2B</strong></li>
+                    <li class="fragment fade-in">Institutional Investments: <span style="color: #42ffa4;">+15%</span></li>
+                    <li class="fragment fade-in">Retail Arbitrage: <span style="color: #42ffa4;">+8%</span></li>
+                    <li class="fragment highlight-red">Legacy Systems Cost: -5%</li>
+                    <li class="fragment fade-up"><strong>Net Operating Income: $1.2B</strong></li>
                 </ul>
                 <aside class="notes">
-                    Click through to reveal each sector. Pause on Insurance to discuss the dip.
+                    Click through these items slowly. Emphasize the reduction in legacy costs.
                 </aside>
             </section>
 
+            <!-- SLIDE 4: Mathematical Equations -->
             <section>
-                <h2>Risk Modeling</h2>
-                <p>We are utilizing the <strong>Black-Scholes Model</strong> for our derivatives pricing update:</p>
+                <h2>Financial Modeling</h2>
+                <p>We used the standard geometric Brownian motion model for forecasting:</p>
                 
+                <!-- MathJax Formula -->
                 $$
-                C = S_t N(d_1) - K e^{-rt} N(d_2)
+                dS_t = \mu S_t dt + \sigma S_t dW_t
                 $$
                 
-                <p>Where $d_1$ is defined as:</p>
+                <p>Resulting in the closed-form solution:</p>
                 $$
-                d_1 = \frac{\ln(S_t/K) + (r + \sigma^2/2)t}{\sigma \sqrt{t}}
+                S_t = S_0 \exp\left( (\mu - \frac{\sigma^2}{2})t + \sigma W_t \right)
                 $$
+                
+                <aside class="notes">
+                    This formula helps us predict stock price movements based on volatility (sigma) and drift (mu).
+                </aside>
             </section>
 
+            <!-- SLIDE 5: Code Sample -->
             <section>
-                <h2>Algorithmic Adjustment</h2>
-                <p>Python implementation for the new yield calculator:</p>
-                <pre><code class="hljs python" data-trim data-line-numbers="1-2|4-5|7">
-def calculate_annual_yield(principal, rate, years):
-    """Calculates compound interest yield"""
+                <h2>Automation Logic</h2>
+                <p>Python script used for automated dividend distribution:</p>
+                <pre><code class="hljs python" data-trim data-line-numbers="1-2|5-6|8">
+def distribute_dividends(earnings, shares):
+    """Calculates dividend per share"""
     
-    # Apply compound interest formula
-    final_amount = principal * (pow((1 + rate / 100), years))
+    retained_earnings_ratio = 0.30
+    distributable = earnings * (1 - retained_earnings_ratio)
     
-    return round(final_amount, 2)
+    dps = distributable / shares
+    return round(dps, 2)
                 </code></pre>
+                <aside class="notes">
+                    The code highlights our automated policy for retaining 30% of earnings for reinvestment.
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: Conclusion -->
+            <section>
+                <h2>Q4 Outlook</h2>
+                <ul>
+                    <li>Focus on AI integration</li>
+                    <li>Expansion into APAC markets</li>
+                </ul>
+                <br><br>
+                <h3>Thank You</h3>
             </section>
 
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
@@ -97,7 +152,6 @@ def calculate_annual_yield(principal, rate, years):
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
 
     <script>
-        // Initialize Reveal
         Reveal.initialize({
             controls: true,
             progress: true,
